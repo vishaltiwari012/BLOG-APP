@@ -1,9 +1,12 @@
+import dotenv from 'dotenv';
 import express from 'express';
+import { dbConnection } from './database/dbConnection.js';
 const app = express();
+dotenv.config();
 
-app.get("/", (req, res) => {
-    res.send("Hello")
-})
-app.listen(3000, () => {
+
+
+dbConnection();
+app.listen(process.env.PORT, () => {
     console.log('Server listening on port 3000')
 })
