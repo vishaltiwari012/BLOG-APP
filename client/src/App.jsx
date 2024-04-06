@@ -7,6 +7,7 @@ import Projects from './pages/Projects';
 import Header from './components/Header';
 import {Toaster} from 'react-hot-toast';
 import Register from './pages/Register';
+import Footer from './components/Footer';
 
 const App = () => {
   return (
@@ -20,6 +21,7 @@ const App = () => {
         <Route path='/dashboard' element={<Dashboard/>}></Route>
         <Route path='/projects' element={<Projects/>}></Route>
       </Routes>
+      <Footer/>
       <Toaster/>
     </Router>
   )
