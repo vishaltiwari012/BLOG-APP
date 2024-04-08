@@ -4,6 +4,7 @@ import { useState } from 'react';
 import { toast } from 'react-hot-toast';
 import { signInStart, signInSuccess, signInFailure } from '../redux/user/userSlice';
 import { useDispatch, useSelector } from 'react-redux';
+import OAuth from '../components/OAuth';
 
 const SignIn = () => {
 
@@ -90,6 +91,7 @@ const SignIn = () => {
                                 'Sign Up'
                             )}
                         </Button>
+                        <OAuth/>
                     </form>
 
 
