@@ -18,6 +18,7 @@ export const signout = (req, res, next) => {
     }
 }
 
+//Update User api
 export const updateUser = asyncHandler(async (req, res, next) => {
     // console.log(req.user);
     // res.send(req.user)
@@ -66,3 +67,17 @@ export const updateUser = asyncHandler(async (req, res, next) => {
     }
     
 })
+
+
+//Delete User API
+export const deleteUser = asyncHandler(async(req, res, next) => {
+    if(req.user.id !== req.params.userId) {
+        return next(errorHandler(403, 'You are not allowed to delete this user'));
+    }
+    try {
+        await User.findByIdAndDelete(req.params.userId);
+        res.status(200).json("User has been deleted");
+    } catch(error) {
+        next(error);
+    }
+});
